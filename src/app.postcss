@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+ 
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+ 
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+ 
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+ 
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+ 
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+ 
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+ 
+    --destructive: 0 72.2% 50.6%;
+    --destructive-foreground: 210 20% 98%;
+ 
+    --ring: 224 71.4% 4.1%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+ 
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    
+    --ring: 216 12.2% 83.9%;
+  }
+}
+
+/* // This can also be used to override the default styling for certain objects. e.g. in the html, h1, h2 */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  :has(:target) {
+    @apply scroll-pt-12 scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-svh h-full [text-rendering:optimizeSpeed];
+  }
+
+	html {
+    @apply h-full [hanging-punctuation:_first_last] scroll-pt-12;
+	}
+}
+
+
+
+
+@layer components {
+	:root {
+		--clr-neutral-900: hsl(207, 19%, 9%);
+		--clr-neutral-100: hsl(0, 0%, 100%);
+		--clr-accent-400: hsl(142, 90%, 61%);
+		--padding: 1.5rem;
+	}
+	.btn {
+		@apply rounded-md px-8 py-3 font-semibold shadow-md
+        transition duration-300 hover:scale-105 active:translate-y-3;
+	}
+
+	.btn-white {
+		@apply bg-white
+		text-black
+		hover:border hover:border-brand-yellow hover:bg-transparent hover:text-white;
+	}
+
+	.btn-transparent-dark {
+		@apply border bg-black/40 text-white hover:shadow-none;
+	}
+
+	.btn-transparent-dark-2 {
+		@apply relative z-0 overflow-hidden border bg-black/40 text-white will-change-transform after:absolute after:left-0
+		after:top-0 after:-z-10 after:block after:h-full after:w-full after:origin-top-left after:rounded-md after:bg-brand-yellow
+		after:will-change-transform after:content-[''] after:[transform:translate(-100%,_0)_rotate(10deg)]
+		after:[transition:.2s_transform_ease-out] hover:text-black hover:will-change-transform hover:[border:2px_solid_transparent] hover:after:translate-x-0
+		hover:after:translate-y-0;
+	}
+
+	.btn-transparent-light {
+		@apply border bg-white/40 text-black/80;
+	}
+
+	.btn_blue {
+		@apply bg-brand-blue text-white hover:bg-brand-yellow hover:text-black focus:bg-brand-blue focus:text-white;
+	}
+
+	.btn-blue-80 {
+		@apply inline-block bg-brand-blue/80 px-12 py-3 text-sm font-medium text-white transition hover:bg-brand-yellow hover:text-black/80 focus:outline-none focus:ring focus:ring-yellow-400;
+	}
+
+	/* .btn_teal {
+		@apply bg-brand-yellow text-white hover:bg-brand-yellow hover:text-black focus:bg-brand-yellow focus:text-white;
+	} */
+
+	.btn_white {
+		@apply rounded-full bg-brand-yellow text-black hover:bg-brand-blue hover:text-white focus:bg-brand-yellow focus:text-black;
+	}
+
+	.btn_crim_anim {
+		@apply relative z-20 overflow-hidden rounded-full bg-brand-yellow text-black before:absolute
+        before:-left-full before:top-0 before:-z-10 before:h-full before:w-full before:bg-brand-blue before:transition-all before:duration-300 before:content-['']
+        hover:text-white before:hover:left-0 focus:bg-brand-yellow focus:text-black;
+	}
+
+	.btn_white_anim {
+		@apply relative z-20 overflow-hidden rounded-full bg-brand-yellow text-black before:absolute
+        before:-left-full before:top-0 before:-z-10 before:h-full before:w-full before:bg-brand-yellow before:transition-all before:duration-300 before:content-['']
+        hover:text-white before:hover:left-0 focus:bg-brand-yellow focus:text-black;
+	}
+
+	.btn_teal_anim {
+		@apply relative z-20 overflow-hidden rounded-full bg-brand-yellow text-white before:absolute before:-left-full
+        before:top-0 before:-z-10 before:h-full before:w-full before:bg-brand-yellow before:transition-all before:duration-300 before:content-[''] hover:bg-brand-yellow
+        hover:text-black before:hover:left-0 focus:bg-brand-yellow focus:text-white;
+	}
+
+	.optimize-speed {
+		text-rendering: optimizeSpeed;
+	}
+
+	.p-block {
+		padding-block: 5rem;
+	}
+
+	/* // Use this for fluid containers. The default definition of tailwind containers results in snapping of components */
+	.cust-container {
+		@apply mx-auto px-4 md:[max-width:92%] 2xl:max-w-screen-2xl;
+	}
+
+	.clip-path-circle {
+		clip-path: circle(150% at 0 50%);
+	}
+
+	/* For fade in on scroll */
+	.fade-in {
+		opacity: 0;
+		transition: opacity 250ms ease-in;
+	}
+
+	.fade-in.appear {
+		opacity: 1;
+	}
+
+	/* for slide in on scroll */
+	.from-left {
+		transform: translateX(-50%);
+	}
+
+	.from-right {
+		transform: translateX(50%);
+	}
+
+	.from-left,
+	.from-right {
+		opacity: 0;
+		transition:
+			transform 1s ease-in,
+			opacity 250ms ease-in;
+	}
+
+	.from-left.appear,
+	.from-right.appear {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
+	/* ::view-transition-old(youth-ministry) {
+		@apply h-full w-full  bg-cover bg-center object-cover object-center opacity-0;
+	} */
+	@media (prefers-reduced-motion: no-preference) {
+		@supports (animation-timeline: view()) {
+			.image-fade-in {
+				scale: 0.8;
+				opacity: 0;
+				animation: fade-in-imag linear both;
+				animation-timeline: view();
+				/* animation-range-start: 500px;
+				animation-range-end: 700px; */
+				animation-range: entry 30% cover 30%;
+			}
+
+			@keyframes fade-in-imag {
+				/* from { scale: 0.3; opacity: 0; } */
+				to {
+					scale: 1;
+					opacity: 1;
+				}
+			}
+
+			.slide-in-from-left {
+				opacity: 0;
+				transform: translateX(-50%);
+				animation: 3s linear forwards appearN;
+				animation-timeline: view();
+				animation-range: entry;
+			}
+
+			.slide-in-from-right {
+				opacity: 0;
+				transform: translateX(50%);
+				animation: 3s linear forwards appearN;
+				animation-timeline: view();
+				animation-range: entry;
+			}
+
+			@keyframes appearN {
+				to {
+					transform: translateX(0);
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+
